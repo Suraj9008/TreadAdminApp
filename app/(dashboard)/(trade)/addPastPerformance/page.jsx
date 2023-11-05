@@ -62,17 +62,6 @@ const AddPastPerformancePage = () => {
             </div>
             <div className="flex mt-3">
               <div className="">
-                {/* <div>
-                  <label htmlFor="default-picker" className=" form-label">
-                    Date
-                  </label>
-                  <Flatpickr
-                    className="form-control py-2"
-                    placeholder="YYYY-MM-DD"
-                    value=""
-                    id="default-picker"
-                  />
-                </div> */}
                 <div className="grid flex-row">
                   <Textinput
                     label="Current Price"
