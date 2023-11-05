@@ -27,6 +27,18 @@ export const menuItems = [
         childtitle: "Add Past Performance",
         childlink: "addPastPerformance",
       },
+      {
+        childtitle: "User Management",
+        childlink: "userManagement",
+      },
+      {
+        childtitle: "User Payment Management",
+        childlink: "userPaymentManagement",
+      },
+      {
+        childtitle: "Coupon Code",
+        childlink: "couponCode",
+      },
     ],
   },
 ];

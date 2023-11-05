@@ -6,7 +6,7 @@ import Flatpickr from "react-flatpickr";
 import ExampleOne from "@/components/partials/table/ExampleOne";
 import Button from "@/components/ui/Button";
 
-const AddPastPerformancePage = () => {
+const userManagement = () => {
   const [basic, setBasic] = useState(new Date());
   return (
     <div className="pt-5">
@@ -126,4 +126,4 @@ const AddPastPerformancePage = () => {
   );
 };
 
-export default AddPastPerformancePage;
+export default userManagement;
