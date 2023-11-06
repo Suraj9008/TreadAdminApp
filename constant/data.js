@@ -24,8 +24,8 @@ export const menuItems = [
         childlink: "addTradeAction",
       },
       {
-        childtitle: "Add Past Performance",
-        childlink: "addPastPerformance",
+        childtitle: "Tread Closure",
+        childlink: "treadClosure",
       },
       {
         childtitle: "User Management",
