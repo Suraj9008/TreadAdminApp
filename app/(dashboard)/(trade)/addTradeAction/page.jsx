@@ -8,6 +8,27 @@ import Button from "@/components/ui/Button";
 
 const AddTradeActionPage = () => {
   const [basic, setBasic] = useState(new Date());
+  const [formData, setFormData] = useState({
+    id: "",
+    tradeId: "",
+    date: new Date(),
+    time: "",
+    currentPrice: "",
+    slPrice: "",
+    tgtPrice: "",
+    action: "",
+  });
+
+  const handleInputChange = (field, value) => {
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
+  const handleSave = () => {
+    console.log("formData", formData);
+  };
 
   return (
     <div className="pt-5">
@@ -19,7 +40,16 @@ const AddTradeActionPage = () => {
           <div className="flex-grow space-y-3">
             <div className="flex space-x-4 items-end">
               <div className="w-full lg:w-1/2 space-y-3">
-                <Textinput label="Id*" id="id" type="text" placeholder="Id" />
+                <Textinput
+                  label="Id*"
+                  id="id"
+                  type="text"
+                  placeholder="Id"
+                  value={formData.id}
+                  onChange={(e) => {
+                    handleInputChange("id", e.target.value);
+                  }}
+                />
               </div>
               <div className="w-full lg:w-1/2 space-y-3">
                 <Textinput
@@ -27,6 +57,10 @@ const AddTradeActionPage = () => {
                   id="tradeId"
                   type="text"
                   placeholder="Trade Id"
+                  value={formData.tradeId}
+                  onChange={(e) => {
+                    handleInputChange("tradeId", e.target.value);
+                  }}
                 />
               </div>
               <Button
@@ -43,8 +77,11 @@ const AddTradeActionPage = () => {
                   <Flatpickr
                     className="form-control py-2"
                     placeholder="YYYY-MM-DD"
-                    value=""
                     id="default-picker"
+                    value={formData.date}
+                    onChange={(e) => {
+                      handleInputChange("date", e);
+                    }}
                   />
                 </div>
                 <div className="w-full lg:w-1/2">
@@ -53,7 +90,6 @@ const AddTradeActionPage = () => {
                   </label>
                   <Flatpickr
                     className="form-control py-2"
-                    value={basic}
                     id="timepicker"
                     options={{
                       enableTime: true,
@@ -61,7 +97,10 @@ const AddTradeActionPage = () => {
                       dateFormat: "H:i",
                       time_24hr: true,
                     }}
-                    onChange={(date) => setBasic(date)}
+                    value={formData.time}
+                    onChange={(e) => {
+                      handleInputChange("time", e);
+                    }}
                   />
                 </div>
               </div>
@@ -73,18 +112,30 @@ const AddTradeActionPage = () => {
                   id="currentPrice"
                   type="text"
                   placeholder="Current Price"
+                  value={formData.currentPrice}
+                  onChange={(e) => {
+                    handleInputChange("currentPrice", e.target.value);
+                  }}
                 />
                 <Textinput
                   label="SL Price"
                   id="slPrice"
                   type="text"
                   placeholder="SL Price"
+                  value={formData.slPrice}
+                  onChange={(e) => {
+                    handleInputChange("slPrice", e.target.value);
+                  }}
                 />
                 <Textinput
                   label="TGT Price"
                   id="tgtPrice"
                   type="text"
                   placeholder="TGT Price"
+                  value={formData.tgtPrice}
+                  onChange={(e) => {
+                    handleInputChange("tgtPrice", e.target.value);
+                  }}
                 />
               </div>
               <div className="ml-4 w-full lg:w-1/2">
@@ -93,6 +144,10 @@ const AddTradeActionPage = () => {
                   id="action"
                   type="text"
                   placeholder="Action"
+                  value={formData.action}
+                  onChange={(e) => {
+                    handleInputChange("action", e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -100,6 +155,7 @@ const AddTradeActionPage = () => {
               <Button
                 text="Save"
                 className="btn btn-success text-lg px-4 py-2 rounded"
+                onClick={handleSave}
               />
               <Button
                 text="Delete"

@@ -10,6 +10,31 @@ import Button from "@/components/ui/Button";
 
 const AddTradePage = () => {
   const [basic, setBasic] = useState(new Date());
+  const [formData, setFormData] = useState({
+    tradeId: "",
+    note: "",
+    userType: "",
+    company: "",
+    date: new Date(),
+    status: "",
+    buyPrice: "",
+    slPrice: "",
+    image: "",
+    tgtPrice: "",
+    time: "",
+    result: "",
+  });
+
+  const handleInputChange = (field, value) => {
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
+  const handleSave = () => {
+    console.log("formData", formData);
+  };
 
   return (
     <div className="container mx-auto mt-10">
@@ -22,6 +47,8 @@ const AddTradePage = () => {
               id="tradeId"
               type="text"
               placeholder="Management dashboard"
+              value={formData.tradeId}
+              onChange={(e) => handleInputChange("tradeId", e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -30,12 +57,16 @@ const AddTradePage = () => {
               id="note"
               type="text"
               placeholder="Management dashboard"
+              value={formData.note}
+              onChange={(e) => handleInputChange("note", e.target.value)}
             />
           </div>
           <div className="mb-4">
             <Select
               options={["Option 1", "Option 2", "Option 3"]}
               label="User Type"
+              value={formData.userType}
+              onChange={(e) => handleInputChange("userType", e.target.value)}
             />
           </div>
 
@@ -46,6 +77,8 @@ const AddTradePage = () => {
               id="companyName"
               type="text"
               placeholder="Management dashboard"
+              value={formData.company}
+              onChange={(e) => handleInputChange("company", e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -55,15 +88,17 @@ const AddTradePage = () => {
             <Flatpickr
               className="form-control py-2"
               placeholder="YYYY-MM-DD"
-              value={basic}
               id="default-picker"
-              onChange={(date) => setBasic(date)}
+              value={formData.date}
+              onChange={(e) => handleInputChange("date", e)}
             />
           </div>
           <div className="mb-4">
             <Select
               options={["Option 1", "Option 2", "Option 3"]}
               label="Status"
+              value={formData.status}
+              onChange={(e) => handleInputChange("status", e.target.value)}
             />
           </div>
 
@@ -74,6 +109,8 @@ const AddTradePage = () => {
               id="buyPrice"
               type="text"
               placeholder="Management dashboard"
+              value={formData.buyPrice}
+              onChange={(e) => handleInputChange("buyPrice", e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -82,11 +119,18 @@ const AddTradePage = () => {
               id="slPrice"
               type="text"
               placeholder="Management dashboard"
+              value={formData.slPrice}
+              onChange={(e) => handleInputChange("slPrice", e.target.value)}
             />
           </div>
           <div className="mb-4">
             <label className="form-label">Upload Image</label>
-            <Fileinput name="basic" selectedFile="" />
+            <Fileinput
+              name="basic"
+              selectedFile=""
+              value={formData.image}
+              onChange={(e) => handleInputChange("image", e.target.value)}
+            />
           </div>
 
           {/* Fourth Row */}
@@ -96,6 +140,8 @@ const AddTradePage = () => {
               id="tgtPrice"
               type="text"
               placeholder="Management dashboard"
+              value={formData.tgtPrice}
+              onChange={(e) => handleInputChange("tgtPrice", e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -104,7 +150,6 @@ const AddTradePage = () => {
             </label>
             <Flatpickr
               className="form-control py-2"
-              value={basic}
               id="timepicker"
               options={{
                 enableTime: true,
@@ -112,7 +157,8 @@ const AddTradePage = () => {
                 dateFormat: "H:i",
                 time_24hr: true,
               }}
-              onChange={(date) => setBasic(date)}
+              value={formData.time}
+              onChange={(e) => handleInputChange("time", e)}
             />
           </div>
           <div className="mb-4">
@@ -121,6 +167,8 @@ const AddTradePage = () => {
               id="resultTextView"
               type="text"
               placeholder="Management dashboard"
+              value={formData.result}
+              onChange={(e) => handleInputChange("result", e.target.value)}
             />
           </div>
         </div>
@@ -129,6 +177,7 @@ const AddTradePage = () => {
           <Button
             text="Save"
             className="btn btn-success text-lg px-4 py-2 rounded mr-3"
+            onClick={handleSave}
           />
           <Button
             text="Delete"
