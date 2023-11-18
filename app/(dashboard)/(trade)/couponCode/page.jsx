@@ -7,108 +7,79 @@ import ExampleOne from "@/components/partials/table/ExampleOne";
 import Button from "@/components/ui/Button";
 import Fileinput from "@/components/ui/Fileinput";
 import Select from "@/components/ui/Select";
-const couponCode = () => {
+
+const CouponCode = () => {
   const [basic, setBasic] = useState(new Date());
+
   return (
     <div className="pt-5">
-      <Card title="Coupon Code Management">
-        <div className="flex justify-between">
-          <div className="mt-10">
-            <div className="">
-              <div className="w-50">
-                <div className="flex">
-                  <div className="space-y-3">
-                    <Textinput
-                      label="Id*"
-                      id="pn"
-                      type="text"
-                      placeholder="Id"
-                    />
-                  </div>
-                  <div className="flex items-end">
-                    <Button
-                      text="Get Data"
-                      className="btn-outline-dark btn-sm bg-success-500 text-lg border rounded border-success-500 text-white mb-0.5 ml-1 text-center"
-                    />
-                  </div>
-                </div>
-              </div>
-              <dev className=""></dev>
+      <Card
+        title="Coupon Code Management"
+        className="w-full max-w-screen-xl mx-auto"
+      >
+        <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-6 lg:items-end">
+          <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
+            <div className="mb-3">
+              <Textinput label="Id*" id="id" type="text" placeholder="Id" />
             </div>
-
-            <div className="flex mt-3">
-              <div className="">
-                <div className="grid flex-row">
-                  <Textinput
-                    label="Name"
-                    id="pn"
-                    type="text"
-                    placeholder="Name"
-                  />
-                  <Textinput
-                    label="Code"
-                    id="pn"
-                    type="text"
-                    placeholder="Code"
-                  />
-                  <Textinput
-                    label="Validity"
-                    id="pn"
-                    type="text"
-                    placeholder="Validity"
-                  />
-                  <Textinput
-                    label="Note"
-                    id="pn"
-                    type="text"
-                    placeholder="Note"
-                  />
-                </div>
-              </div>
-              <div className="">
-                <div className="">
-                  <label className=" form-label">Upload Image</label>
-                  <Fileinput name="basic" selectedFile="" />
-                </div>
-                <Textinput
-                  label="Amount"
-                  id="pn"
-                  type="text"
-                  placeholder="Amount"
-                />
-                <div className="">
-                  <Select
-                    options={["On", "Off"]}
-                    label="Status"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-5">
+            <div className="flex mb-3 items-end">
               <Button
-                text="Save"
-                className="btn-outline-dark bg-success-500 text-lg border rounded border-success-500 text-white mr-3"
-              />
-              <Button
-                text="Delete"
-                className="btn-outline-dark bg-danger-500 text-lg border rounded border-danger-500 text-white mx-3"
-              />
-              <Button
-                text="Get"
-                className="btn-outline-dark bg-primary-500 text-lg border rounded border-primary-500 text-white mx-3"
-              />
-              <Button
-                text="Update"
-                className="btn-outline-dark bg-warning-500 text-lg border rounded border-warning-500 text-white mx-3"
+                text="Get Data"
+                className="btn btn-success text-md px-3 py-2 rounded"
               />
             </div>
+            <Textinput label="Name" id="name" type="text" placeholder="Name" />
+            <Textinput label="Code" id="code" type="text" placeholder="Code" />
+            <Textinput
+              label="Validity"
+              id="validity"
+              type="text"
+              placeholder="Validity"
+            />
+            <Textinput label="Note" id="note" type="text" placeholder="Note" />
           </div>
-          <div className="ml-5">
-            <ExampleOne />
+
+          <div className="w-full lg:w-1/2">
+            <div className="mb-3">
+              <label className="form-label">Upload Image</label>
+              <Fileinput name="basic" selectedFile="" />
+            </div>
+            <Textinput
+              label="Amount"
+              id="amount"
+              type="text"
+              placeholder="Amount"
+            />
+            <div className="mt-3">
+              <Select options={["On", "Off"]} label="Status" />
+            </div>
           </div>
         </div>
+
+        <div className="flex space-x-3 justify-end mt-5 ">
+          <Button
+            text="Save"
+            className="btn btn-success text-md px-3 py-2 rounded"
+          />
+          <Button
+            text="Delete"
+            className="btn btn-danger text-md px-3 py-2 rounded"
+          />
+          <Button
+            text="Get"
+            className="btn btn-primary text-md px-3 py-2 rounded"
+          />
+          <Button
+            text="Update"
+            className="btn btn-warning text-md px-3 py-2 rounded"
+          />
+        </div>
+      </Card>
+      <Card title="Advance Table" className="w-full max-w-screen-xl mx-auto mt-3">
+        <ExampleOne />
       </Card>
     </div>
   );
 };
-export default couponCode;
+
+export default CouponCode;

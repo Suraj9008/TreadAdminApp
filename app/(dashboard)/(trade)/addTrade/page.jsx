@@ -10,136 +10,146 @@ import Button from "@/components/ui/Button";
 
 const AddTradePage = () => {
   const [basic, setBasic] = useState(new Date());
+
   return (
-    <>
-      <div className="pt-5">
-        <Card title="Trade Data Page">
-          <div className="">
-            <div className="space-y-3">
-              <Textinput
-                label="Trade Id*"
-                id="pn"
-                type="text"
-                placeholder="Management dashboard "
-              />
-            </div>
-            <div className="space-y-3">
-              <Textinput
-                label="Note*"
-                id="pn"
-                type="text"
-                placeholder="Management dashboard "
-              />
-            </div>
-            <div className="space-y-3">
-              <Select
-                options={["Option 1", "Option 2", "Option 3"]}
-                label="User Type"
-              />
-            </div>
-            <div className="space-y-3">
-              <Textinput
-                label="Company Name*"
-                id="pn"
-                type="text"
-                placeholder="Management dashboard "
-              />
-            </div>
-            <div className="space-y-3">
-              <label htmlFor="default-picker" className=" form-label">
-                Date
-              </label>
-              <Flatpickr
-                className="form-control py-2"
-                placeholder="YYYY-MM-DD"
-                value=""
-                id="default-picker"
-              />
-            </div>
-            <div className="space-y-3">
-              <Select
-                options={["Option 1", "Option 2", "Option 3"]}
-                label="Status"
-              />
-            </div>
-            <div className="space-y-3">
-              <label className=" form-label">Upload Image</label>
-              <Fileinput name="basic" selectedFile="" />
-            </div>
-            <div className="space-y-3">
-              <Textinput
-                label="Buy Price"
-                id="pn"
-                type="text"
-                placeholder="Management dashboard "
-              />
-            </div>
-            <div className="space-y-3">
-              <Textinput
-                label="SL Price"
-                id="pn"
-                type="text"
-                placeholder="Management dashboard "
-              />
-            </div>
-            <div className="space-y-3">
-              <Textinput
-                label="TGT Price"
-                id="pn"
-                type="text"
-                placeholder="Management dashboard "
-              />
-            </div>
-            <div>
-              <label className="form-label" id="timepicker">
-                Basic 24hrs
-              </label>
-              <Flatpickr
-                className="form-control py-2"
-                value={basic}
-                id="timepicker"
-                options={{
-                  enableTime: true,
-                  noCalendar: true,
-                  dateFormat: "H:i",
-                  time_24hr: true,
-                }}
-                onChange={(date) => setBasic(date)}
-              />
-            </div>
-            <div className="space-y-3">
-              <Textinput
-                label="Result Text View"
-                id="pn"
-                type="text"
-                placeholder="Management dashboard "
-              />
-            </div>
-          </div>
-          <div className="columns-3 mt-5">
-            <Button
-              text="Save"
-              className="btn-outline-dark bg-success-500 text-lg border rounded border-success-500 text-white mr-3"
-            />
-            <Button
-              text="Delete"
-              className="btn-outline-dark bg-danger-500 text-lg border rounded border-danger-500 text-white mx-3"
-            />
-            <Button
-              text="Get"
-              className="btn-outline-dark bg-primary-500 text-lg border rounded border-primary-500 text-white mx-3"
-            />
-            <Button
-              text="Update"
-              className="btn-outline-dark bg-warning-500 text-lg border rounded border-warning-500 text-white mx-3"
+    <div className="container mx-auto mt-10">
+      <Card title="Trade Data Page" className="w-full max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* First Row */}
+          <div className="mb-4">
+            <Textinput
+              label="Trade Id*"
+              id="tradeId"
+              type="text"
+              placeholder="Management dashboard"
             />
           </div>
-        </Card>
-      </div>
-      <div className="mt-5">
+          <div className="mb-4">
+            <Textinput
+              label="Note*"
+              id="note"
+              type="text"
+              placeholder="Management dashboard"
+            />
+          </div>
+          <div className="mb-4">
+            <Select
+              options={["Option 1", "Option 2", "Option 3"]}
+              label="User Type"
+            />
+          </div>
+
+          {/* Second Row */}
+          <div className="mb-4">
+            <Textinput
+              label="Company Name*"
+              id="companyName"
+              type="text"
+              placeholder="Management dashboard"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="default-picker" className="form-label">
+              Date
+            </label>
+            <Flatpickr
+              className="form-control py-2"
+              placeholder="YYYY-MM-DD"
+              value={basic}
+              id="default-picker"
+              onChange={(date) => setBasic(date)}
+            />
+          </div>
+          <div className="mb-4">
+            <Select
+              options={["Option 1", "Option 2", "Option 3"]}
+              label="Status"
+            />
+          </div>
+
+          {/* Third Row */}
+          <div className="mb-4">
+            <Textinput
+              label="Buy Price"
+              id="buyPrice"
+              type="text"
+              placeholder="Management dashboard"
+            />
+          </div>
+          <div className="mb-4">
+            <Textinput
+              label="SL Price"
+              id="slPrice"
+              type="text"
+              placeholder="Management dashboard"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="form-label">Upload Image</label>
+            <Fileinput name="basic" selectedFile="" />
+          </div>
+
+          {/* Fourth Row */}
+          <div className="mb-4">
+            <Textinput
+              label="TGT Price"
+              id="tgtPrice"
+              type="text"
+              placeholder="Management dashboard"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="form-label" id="timepicker">
+              Basic 24hrs
+            </label>
+            <Flatpickr
+              className="form-control py-2"
+              value={basic}
+              id="timepicker"
+              options={{
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+              }}
+              onChange={(date) => setBasic(date)}
+            />
+          </div>
+          <div className="mb-4">
+            <Textinput
+              label="Result Text View"
+              id="resultTextView"
+              type="text"
+              placeholder="Management dashboard"
+            />
+          </div>
+        </div>
+
+        <div className="flex mt-5 justify-end">
+          <Button
+            text="Save"
+            className="btn btn-success text-lg px-4 py-2 rounded mr-3"
+          />
+          <Button
+            text="Delete"
+            className="btn btn-danger text-lg px-4 py-2 rounded mr-3"
+          />
+          <Button
+            text="Get"
+            className="btn btn-primary text-lg px-4 py-2 rounded mr-3"
+          />
+          <Button
+            text="Update"
+            className="btn btn-warning text-lg px-4 py-2 rounded"
+          />
+        </div>
+      </Card>
+
+      {/* Additional Section */}
+      <Card className="w-full max-w-screen-xl mx-auto mt-5">
         <ExampleOne />
-      </div>
-    </>
+      </Card>
+    </div>
   );
 };
 

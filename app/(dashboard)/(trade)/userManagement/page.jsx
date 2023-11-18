@@ -7,147 +7,132 @@ import ExampleOne from "@/components/partials/table/ExampleOne";
 import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
 
-const userManagement = () => {
+const UserManagement = () => {
   const [basic, setBasic] = useState(new Date());
+
   return (
     <div className="pt-5">
-      <Card title="User Management">
-        <div className="flex justify-between">
-          <div className="mt-10">
-            <div className="">
-              <div className="w-50">
-                <div className="flex">
-                  <div className="space-y-3">
-                    <Textinput
-                      label="Id*"
-                      id="pn"
-                      type="text"
-                      placeholder="Id"
-                    />
-                  </div>
-                  <div className="flex items-end">
-                    <Button
-                      text="Get Data"
-                      className="btn-outline-dark btn-sm bg-success-500 text-lg border rounded border-success-500 mb-0.5 text-white text-center "
-                    />
-                  </div>
-                </div>
+      {/* User Management Card */}
+      <Card title="User Management" className="w-full max-w-screen-xl mx-auto">
+        <div className="flex flex-col lg:flex-row space-y-4 lg:space-x-6 lg:items-end">
+          <div className="flex-grow space-y-3">
+            <div className="flex space-x-4 items-end">
+              <div className="w-full lg:w-1/2 space-y-3">
+                <Textinput label="Id*" id="id" type="text" placeholder="Id" />
+              </div>
+              <Button
+                text="Get Data"
+                className="btn btn-success text-md px-3 py-2 rounded"
+              />
+            </div>
+            
+            <div className="flex space-x-4">
+              <div className="w-1/2">
+                <Textinput
+                  label="Name"
+                  id="pn"
+                  type="text"
+                  placeholder="Name"
+                />
+              </div>
+              <div className="w-1/2">
+                <Textinput
+                  label="Mobile No"
+                  id="pn"
+                  type="text"
+                  placeholder="Mobile No"
+                />
               </div>
             </div>
-            {/* <div className="flex mt-3">
-              <div>
-                <label className="form-label" id="timepicker">
-                  Time
+            <div className="flex space-x-4">
+              <div className="w-1/2">
+                <Textinput
+                  label="Email"
+                  id="pn"
+                  type="text"
+                  placeholder="Email"
+                />
+              </div>
+              <div className="w-1/2">
+                <Select options={["Pro", "Free"]} label="user Type" />
+              </div>
+            </div>
+
+            <div className="flex space-x-4">
+              <div className="w-1/2">
+                <label className="form-label" id="timepicker1">
+                  Joining Date
                 </label>
                 <Flatpickr
                   className="form-control py-2"
+                  placeholder="YYYY-MM-DD"
                   value={basic}
-                  id="timepicker"
-                  options={{
-                    enableTime: true,
-                    noCalendar: true,
-                    dateFormat: "H:i",
-                    time_24hr: true,
-                  }}
+                  id="default-picker"
                   onChange={(date) => setBasic(date)}
                 />
               </div>
-            </div> */}
-            <div className="flex mt-3">
-              <div className="">
-                <div className="grid flex-row">
-                  <Textinput
-                    label="Name"
-                    id="pn"
-                    type="text"
-                    placeholder="Name"
-                  />
-                  <Textinput
-                    label="Mobile No"
-                    id="pn"
-                    type="text"
-                    placeholder="Mobile No"
-                  />
-                  <Textinput
-                    label="Email"
-                    id="pn"
-                    type="text"
-                    placeholder="Email"
-                  />
-                  <div className="">
-                    <Select options={["Pro", "Free"]} label="Status" />
-                  </div>
-                </div>
+              <div className="w-1/2">
+                <label className="form-label" id="timepicker2">
+                  Expiry Date
+                </label>
+                <Flatpickr
+                  className="form-control py-2"
+                  placeholder="YYYY-MM-DD"
+                  value={basic}
+                  id="default-picker"
+                  onChange={(date) => setBasic(date)}
+                />
               </div>
-              <div className="flex flex-col items-center">
-                <div>
-                  <label className="form-label" id="timepicker">
-                    Time
-                  </label>
-                  <Flatpickr
-                    className="form-control py-2"
-                    value={basic}
-                    id="timepicker"
-                    options={{
-                      enableTime: true,
-                      noCalendar: true,
-                      dateFormat: "H:i",
-                      time_24hr: true,
-                    }}
-                    onChange={(date) => setBasic(date)}
-                  />
-                </div>
-                <div>
-                  <label className="form-label" id="timepicker">
-                    Time
-                  </label>
-                  <Flatpickr
-                    className="form-control py-2"
-                    value={basic}
-                    id="timepicker"
-                    options={{
-                      enableTime: true,
-                      noCalendar: true,
-                      dateFormat: "H:i",
-                      time_24hr: true,
-                    }}
-                    onChange={(date) => setBasic(date)}
-                  />
-                </div>
+            </div>
+
+            <div className="flex space-x-4">
+              <div className="w-1/2">
                 <Textinput
                   label="Device Id"
                   id="pn"
                   type="text"
-                  placeholder="Device Id"
+                  placeh
+                  older="Device Id"
+                />
+              </div>
+              <div className="w-1/2">
+                <Textinput
+                  label="Firebase Token"
+                  id="pn"
+                  type="text"
+                  placeh
+                  older="Firebase Token"
                 />
               </div>
             </div>
-            <div className="flex mt-5">
-              <Button
-                text="Save"
-                className="btn-outline-dark bg-success-500 text-lg border rounded border-success-500 text-white mr-3"
-              />
-              <Button
-                text="Delete"
-                className="btn-outline-dark bg-danger-500 text-lg border rounded border-danger-500 text-white mx-3"
-              />
-              <Button
-                text="Get"
-                className="btn-outline-dark bg-primary-500 text-lg border rounded border-primary-500 text-white mx-3"
-              />
-              <Button
-                text="Update"
-                className="btn-outline-dark bg-warning-500 text-lg border rounded border-warning-500 text-white mx-3"
-              />
-            </div>
-          </div>
-          <div className="ml-5">
-            <ExampleOne />
           </div>
         </div>
+
+        <div className="flex mt-5 justify-end">
+          <Button
+            text="Save"
+            className="btn btn-success text-lg px-4 py-2 rounded mr-3"
+          />
+          <Button
+            text="Delete"
+            className="btn btn-danger text-lg px-4 py-2 rounded mr-3"
+          />
+          <Button
+            text="Get"
+            className="btn btn-primary text-lg px-4 py-2 rounded mr-3"
+          />
+          <Button
+            text="Update"
+            className="btn btn-warning text-lg px-4 py-2 rounded"
+          />
+        </div>
+      </Card>
+
+      <Card title="Table" className="w-full max-w-screen-xl mx-auto mt-3">
+        <ExampleOne />
       </Card>
     </div>
   );
 };
 
-export default userManagement;
+export default UserManagement;

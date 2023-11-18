@@ -31,10 +31,10 @@ export const menuItems = [
         childtitle: "User Management",
         childlink: "userManagement",
       },
-      {
-        childtitle: "User Payment Management",
-        childlink: "userPaymentManagement",
-      },
+      // {
+      //   childtitle: "User Payment Management",
+      //   childlink: "userPaymentManagement",
+      // },
       {
         childtitle: "Coupon Code",
         childlink: "couponCode",
