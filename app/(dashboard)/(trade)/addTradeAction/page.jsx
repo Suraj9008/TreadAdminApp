@@ -1,13 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@/components/ui/Card";
 import Textinput from "@/components/ui/Textinput";
 import Flatpickr from "react-flatpickr";
 import ExampleOne from "@/components/partials/table/ExampleOne";
 import Button from "@/components/ui/Button";
+import TradeActionTable from "../TradeActionTable";
 
 const AddTradeActionPage = () => {
-  const [basic, setBasic] = useState(new Date());
+  const [stockData, setStockData] = useState([]);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const [formData, setFormData] = useState({
     id: "",
     tradeId: "",
@@ -29,6 +32,24 @@ const AddTradeActionPage = () => {
   const handleSave = () => {
     console.log("formData", formData);
   };
+
+  async function getStockData() {
+    const apiUrl = baseUrl + "/webdata/getactivetrades.php";
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      setStockData(data);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error("Error fetching stock data:", error);
+      throw new Error("Failed to fetch stock data");
+    }
+  }
+
+  useEffect(() => {
+    getStockData();
+  }, [stockData.length]);
 
   return (
     <div className="pt-5">
@@ -173,9 +194,9 @@ const AddTradeActionPage = () => {
           </div>
         </div>
       </Card>
-      <Card className="w-full max-w-screen-xl mx-auto mt-3">
-        <div className="ml-5">
-          <ExampleOne />
+      <Card className="w-full  mx-auto mt-3">
+        <div className="ml-5 mt-3">
+          <TradeActionTable title="Stock Data Table" stockData={stockData} />
         </div>
       </Card>
     </div>
