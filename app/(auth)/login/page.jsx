@@ -6,7 +6,7 @@ import Social from "@/components/partials/auth/social";
 import useDarkMode from "@/hooks/useDarkMode";
 import dynamic from "next/dynamic";
 
-const Login2 = () => {
+const Login = () => {
   const [isDark] = useDarkMode();
   return (
     <>
@@ -88,4 +88,4 @@ const Login2 = () => {
   );
 };
 
-export default Login2;
+export default Login;
