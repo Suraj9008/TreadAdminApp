@@ -3,7 +3,10 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  //output: "standalone",
+  images: {
+    // your images configuration goes here
+  },
+  // output: "standalone",
 };
 
 module.exports = nextConfig;
